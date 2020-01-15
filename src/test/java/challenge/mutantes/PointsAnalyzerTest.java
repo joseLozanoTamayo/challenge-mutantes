@@ -11,20 +11,20 @@ public class PointsAnalyzerTest {
         String[] data = {"ATGCGA"};
         Point point = new Point(0, 0);
         ArrayList<Point> points = new ArrayList();
-        points.add(new Point(0, 1));
-        points.add(new Point(0, 2));
-        points.add(new Point(0, 3));
+        points.add(new Point(1, 0));
+        points.add(new Point(2, 0));
+        points.add(new Point(3, 0));
 
         assertFalse(PointsAnalyzer.isSequence(data, point, points));
     }
 
     @Test public void testSequenceTrue() {
         String[] data = {"TCCCC"};
-        Point point = new Point(0, 1);
+        Point point = new Point(1, 0);
         ArrayList<Point> points = new ArrayList();
-        points.add(new Point(0, 2));
-        points.add(new Point(0, 3));
-        points.add(new Point(0, 4));
+        points.add(new Point(2, 0));
+        points.add(new Point(3, 0));
+        points.add(new Point(4, 0));
 
         assertTrue(PointsAnalyzer.isSequence(data, point, points));
     }
