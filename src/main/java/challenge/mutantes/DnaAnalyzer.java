@@ -15,6 +15,7 @@ public class DnaAnalyzer {
 
         finders.add(new HorizontalFinder());
         finders.add(new VerticalFinder());
+        finders.add(new RightDiagonalFinder());
     }
 
     public boolean isMutant() {
