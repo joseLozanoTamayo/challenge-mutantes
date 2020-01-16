@@ -11,6 +11,14 @@ public class Point {
         this.positionY = positionY;
     }
 
+    public Point(Integer position) {
+        this(position, position);
+    }
+
+    public Point() {
+        this(0);
+    }
+
     public Integer getPositionX() {
         return positionX;
     }

@@ -3,22 +3,30 @@ package challenge.mutantes;
 import java.util.ArrayList;
 
 public class HorizontalFinder {
-    private static final int SEQUENCE_LENGTH = 4;
     private Point startPoint;
     private ArrayList<Point> points;
 
     public HorizontalFinder(Point startPoint) {
-        this.startPoint = startPoint;
         points = new ArrayList<>();
-        generatePoints(startPoint);
+        setStartPoint(startPoint);
+    }
+
+    public HorizontalFinder() {
+        this(new Point());
     }
 
     public ArrayList<Point> getPoints() {
         return points;
     }
 
+    public void setStartPoint(Point startPoint) {
+        this.startPoint = startPoint;
+        generatePoints(startPoint);
+    }
+
     private void generatePoints(Point startPoint) {
-        for (int i = 1; i < SEQUENCE_LENGTH; i++) {
+        this.points.clear();
+        for (int i = 1; i < DnaAnalyzer.MUTANT_SEQUENCE_LENGTH; i++) {
             points.add(new Point(startPoint.getPositionX() + i, startPoint.getPositionY()));
         }
     }
