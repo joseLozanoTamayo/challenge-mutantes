@@ -53,4 +53,11 @@ public class DnaAnalyzerTest {
         DnaAnalyzer dnaAnalyzer = new DnaAnalyzer(dna);
         assertTrue(dnaAnalyzer.isMutant());
     }
+
+    @Test public void testIsMutantDocExample() {
+        String[] dna ={"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+
+        DnaAnalyzer dnaAnalyzer = new DnaAnalyzer(dna);
+        assertTrue(dnaAnalyzer.isMutant());
+    }
 }
