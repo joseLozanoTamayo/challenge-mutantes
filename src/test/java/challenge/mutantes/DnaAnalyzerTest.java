@@ -25,4 +25,18 @@ public class DnaAnalyzerTest {
         DnaAnalyzer dnaAnalyzer = new DnaAnalyzer(dna);
         assertTrue(dnaAnalyzer.isMutant());
     }
+
+    @Test public void testIsMutantOneSequenceVertical() {
+        String[] dna = {"CTGCGA","TAGAGC","ATATTT","AAGTGC","ACGTCA","ACACTG"};
+
+        DnaAnalyzer dnaAnalyzer = new DnaAnalyzer(dna);
+        assertFalse(dnaAnalyzer.isMutant());
+    }
+
+    @Test public void testIsMutantTwoSequencesVertical() {
+        String[] dna = {"CTGCGA","TAGTGC","ATATTT","AAGTGC","ACGTCA","ACACTG"};
+
+        DnaAnalyzer dnaAnalyzer = new DnaAnalyzer(dna);
+        assertTrue(dnaAnalyzer.isMutant());
+    }
 }

@@ -1,11 +1,11 @@
 package challenge.mutantes;
 
-public class HorizontalFinder extends Finder {
-    public HorizontalFinder(Point point) {
+public class VerticalFinder extends Finder{
+    public VerticalFinder(Point point) {
         super(point);
     }
 
-    public HorizontalFinder() {
+    public VerticalFinder() {
         super();
     }
 
@@ -13,7 +13,7 @@ public class HorizontalFinder extends Finder {
     public void generatePoints(Point startPoint) {
         this.points.clear();
         for (int i = 1; i < DnaAnalyzer.MUTANT_SEQUENCE_LENGTH; i++) {
-            points.add(new Point(startPoint.getPositionX() + i, startPoint.getPositionY()));
+            points.add(new Point(startPoint.getPositionX(), startPoint.getPositionY() + i));
         }
     }
 }
