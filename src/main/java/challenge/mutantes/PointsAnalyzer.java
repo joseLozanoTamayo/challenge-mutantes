@@ -7,6 +7,10 @@ public class PointsAnalyzer {
         char startPointValue = data[point.getPositionY()].charAt(point.getPositionX());
 
         for(Point actualPoint : points) {
+            if (actualPoint.getPositionX() < 0 || actualPoint.getPositionY() < 0) {
+                return false;
+            }
+
             if (actualPoint.getPositionX() >= data[0].length() || actualPoint.getPositionY() >= data.length) {
                 return false;
             }
