@@ -1,5 +1,6 @@
-package challenge.mutantes;
+package challenge.mutantes.Utils;
 
+import challenge.mutantes.Utils.DnaAnalyzer;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

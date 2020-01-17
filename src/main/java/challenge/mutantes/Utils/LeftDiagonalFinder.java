@@ -1,4 +1,4 @@
-package challenge.mutantes;
+package challenge.mutantes.Utils;
 
 public class LeftDiagonalFinder extends Finder {
     public LeftDiagonalFinder(Point point) {
