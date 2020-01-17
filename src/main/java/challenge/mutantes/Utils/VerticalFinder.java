@@ -1,4 +1,4 @@
-package challenge.mutantes;
+package challenge.mutantes.Utils;
 
 public class VerticalFinder extends Finder{
     public VerticalFinder(Point point) {

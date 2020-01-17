@@ -1,5 +1,7 @@
-package challenge.mutantes;
+package challenge.mutantes.Utils;
 
+import challenge.mutantes.Utils.LeftDiagonalFinder;
+import challenge.mutantes.Utils.Point;
 import org.junit.Test;
 
 import java.util.ArrayList;
