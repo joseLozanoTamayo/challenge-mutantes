@@ -1,4 +1,5 @@
 # Challenge Mutantes
+![](https://github.com/matiasdgreco/challenge-mutantes/workflows/Java%20CI/badge.svg)
 
 ## Entorno local
 Para correr la aplicación de forma local es necesario ejectuar el siguiente comando `./gradlew run`
