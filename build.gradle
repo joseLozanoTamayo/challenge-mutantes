@@ -54,3 +54,6 @@ application {
 bootJar {
     mainClassName = 'challenge.mutantes.App'
 }
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
