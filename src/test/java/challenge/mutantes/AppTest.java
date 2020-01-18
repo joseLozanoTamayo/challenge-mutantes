@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -22,8 +23,24 @@ public class AppTest {
     private MockMvc mvc;
 
     @Test
-    public void testMutantEndpoint() throws Exception {
-        mvc.perform(post("/mutant/"))
+    public void testMutantEndpointForbidden() throws Exception {
+        mvc.perform(post("/mutant/")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\n" +
+                        "\"dna\":[\"ATGCGA\", \"CAGTGC\", \"TTATTT\", \"AGACGG\", \"GCGTCA\", \"TCACTG\"]\n" +
+                        "}")
+        )
+                .andExpect(status().isForbidden());
+    }
+
+    @Test
+    public void testMutantEndpointSuccess() throws Exception {
+        mvc.perform(post("/mutant/")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\n" +
+                        "\"dna\":[\"ATGCGA\", \"CAGTGC\", \"TTATGT\", \"AGAAGG\", \"CCCCTA\", \"TCACTG\"]\n" +
+                        "}")
+        )
                 .andExpect(status().isOk());
     }
 }
