@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+
 @RestController
 @RequestMapping(value = "/mutant")
 public class MutantController {
@@ -24,7 +26,7 @@ public class MutantController {
     public ResponseEntity mutant(@RequestBody Human human) {
         humanService.save(human);
 
-        if (humanService.isMutant((String[]) human.getDna().toArray())) {
+        if (humanService.isMutant(human.getDna().stream().toArray(String[]::new))) {
             return new ResponseEntity(HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.FORBIDDEN);
