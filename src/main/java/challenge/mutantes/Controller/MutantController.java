@@ -1,5 +1,6 @@
 package challenge.mutantes.Controller;
 
+import challenge.mutantes.Entity.Human;
 import challenge.mutantes.Services.HumanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/mutant")
@@ -22,11 +21,12 @@ public class MutantController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ResponseEntity mutant(@RequestBody Map<String, String[]> request) {
-        if (humanService.isMutant(request.get("dna"))) {
+    public ResponseEntity mutant(@RequestBody Human human) {
+        humanService.save(human);
+
+        if (humanService.isMutant((String[]) human.getDna().toArray())) {
             return new ResponseEntity(HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.FORBIDDEN);
     }
-
 }
