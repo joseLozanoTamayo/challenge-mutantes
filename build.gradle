@@ -44,6 +44,10 @@ dependencies {
             }
         }
     }
+
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.liquibase:liquibase-core')
+    runtime('org.postgresql:postgresql:42.2.1')
 }
 
 application {
