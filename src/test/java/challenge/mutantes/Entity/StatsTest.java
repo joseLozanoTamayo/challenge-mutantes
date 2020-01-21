@@ -14,7 +14,7 @@ public class StatsTest {
 
     @Test public void testRatioOnlyMutant() {
         stats = new Stats(40, 0);
-        assertEquals(1, stats.getRatio(), 0.0);
+        assertEquals(0, stats.getRatio(), 0.0);
     }
 
     @Test public void testRatioEquals() {

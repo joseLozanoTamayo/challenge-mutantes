@@ -31,8 +31,10 @@ public class Stats {
     }
 
     private void generateRatio() {
-        ratio = (humans == 0) ? 1 : (float) mutants / humans;
-        ratio = Math.round(ratio * 100.00) / 100.00;
+        if (humans == 0) {
+            return;
+        }
+        ratio = Math.round(((float) mutants / humans) * 100.00) / 100.00;
     }
 
     @Override
