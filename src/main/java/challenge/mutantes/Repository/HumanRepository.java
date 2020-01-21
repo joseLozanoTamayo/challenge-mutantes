@@ -8,4 +8,6 @@ import java.util.Optional;
 
 public interface HumanRepository extends CrudRepository<Human, Long> {
     Optional<Human> findByDna(List<String> dna);
+    Integer countAllByMutantIsTrue();
+    Integer countAllByMutantIsFalse();
 }
