@@ -1,5 +1,7 @@
 package challenge.mutantes.Controller;
 
+import challenge.mutantes.Entity.Human;
+import challenge.mutantes.Entity.HumanRequest;
 import challenge.mutantes.Services.HumanService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -27,9 +30,9 @@ public class MutantControllerTest {
 
     @Test
     public void testMutantEndpointForbidden() throws Exception {
-        //FIXME: Implement mapper
-        String[] dna = {"ATGCGA","CAGTGC","TTATTT","AGACGG","GCGTCA","TCACTG"};
-        when(humanService.isMutant(dna)).thenReturn(false);
+        Human human = new Human();
+        human.setMutant(false);
+        when(humanService.save(any(HumanRequest.class))).thenReturn(human);
 
         mockMvc.perform(post("/mutant/")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -42,9 +45,9 @@ public class MutantControllerTest {
 
     @Test
     public void testMutantEndpointSuccess() throws Exception {
-        //FIXME: Implement mapper
-        String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
-        when(humanService.isMutant(dna)).thenReturn(true);
+        Human human = new Human();
+        human.setMutant(true);
+        when(humanService.save(any(HumanRequest.class))).thenReturn(human);
 
         mockMvc.perform(post("/mutant/")
                 .contentType(MediaType.APPLICATION_JSON)
