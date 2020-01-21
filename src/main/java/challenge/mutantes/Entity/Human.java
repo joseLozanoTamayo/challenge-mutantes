@@ -19,14 +19,6 @@ public class Human {
     @NotNull
     private Boolean mutant = false;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public List<String> getDna() {
         return dna;
     }
