@@ -1,5 +1,7 @@
 package challenge.mutantes.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class Stats {
@@ -13,14 +15,17 @@ public class Stats {
         generateRatio();
     }
 
+    @JsonProperty("count_mutant_dna")
     public Integer getMutants() {
         return mutants;
     }
 
+    @JsonProperty("count_human_dna")
     public Integer getHumans() {
         return humans;
     }
 
+    @JsonProperty("ratio")
     public double getRatio() {
         return ratio;
     }
